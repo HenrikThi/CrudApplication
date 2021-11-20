@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const openSea = require("../api/opensea");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -15,6 +16,12 @@ const loginCheck = () => {
     }
   };
 };
+
+router.get("/quiz", loginCheck(), async (req, res, next) => {
+  const nft = await openSea.getRandomNft();
+  // res.send(nft);
+  res.render("quiz", {nft});
+});
 
 router.get("/profile", loginCheck(), (req, res, next) => {
   // with basic-auth: req.session.user

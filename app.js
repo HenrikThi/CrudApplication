@@ -30,8 +30,6 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const DB_URL = process.env.MONGO;
 
-console.log(process.env.MONGO);
-console.log(process.env.SESSION_SECRET);
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -93,5 +91,7 @@ app.use("/", auth);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
+
+require("./api/openQuiz");
 
 module.exports = app;
