@@ -96,5 +96,6 @@ app.use("/", collection);
 require("./error-handling")(app);
 
 require("./api/openQuiz");
+require("./api/opensea")
 
 module.exports = app;
