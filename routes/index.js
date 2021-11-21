@@ -86,7 +86,7 @@ router.post("/nfts/:id/delete", async (req, res, next) => {
     { $pull: { nfts: req.params.id } },
     { new: true }
   );
-  res.redirect("/profile");
+  res.redirect(`/collections/${req.user.id}`);
 });
 
 router.post("/users/:id", async (req, res, next) => {
