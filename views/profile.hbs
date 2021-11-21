@@ -1,0 +1,8 @@
+{{#with user}}
+  <h1>Profile of {{username}}</h1>
+  <form action="/users/{{id}}" method="post">
+    <label for="collectionName">Name of your collection:</label>
+    <input name="collectionName" value="{{collectionName}}"/>
+    <button type="submit">Change</button>
+  </form>
+{{/with}}

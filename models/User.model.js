@@ -8,6 +8,8 @@ const userSchema = new Schema(
       unique: true,
     },
     password: String,
+    nfts: [{ type: Schema.Types.ObjectId, ref: "Nft" }],
+    collectionName: { type: String, default: "The unknown" },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

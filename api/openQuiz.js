@@ -1,22 +1,30 @@
 const axios = require("axios");
-var shuffle = require("shuffle-array");
+const shuffle = require("shuffle-array");
+const { decode } = require("html-entities");
 
-async function getQuiz() {
-  const reqUrl = `https://opentdb.com/api.php?amount=10&type=multiple`;
+async function getQuiz(number, difficulty) {
+  const reqUrl = `https://opentdb.com/api.php?amount=${number}&difficulty=${difficulty}&type=multiple&category=18`;
   const res = await axios.get(reqUrl);
 
   const questions = res.data.results;
-  const correctAnswers = questions.map((q) => q.correct_answer);
 
   questions.forEach((q) => {
-    q.answers = shuffle([...q.incorrect_answers, q.correct_answer]);
+    q.question = decode(q.question);
+    q.correct_answer = decode(q.correct_answer);
+    q.incorrect_answers = q.incorrect_answers.map((ia) => decode(ia));
+  });
+
+  const answers = questions.map((q) => q.correct_answer);
+
+  questions.forEach((q) => {
+    q.options = shuffle([...q.incorrect_answers, q.correct_answer]);
     delete q.incorrect_answers;
     delete q.correct_answer;
   });
 
-  return questions;
+  return { questions, answers };
 }
 
-getQuiz().then((q) => console.log(q[0]));
+// getQuiz(2, "easy").then((q) => console.log(q));
 
-// console.log(shuffle([1,2,3,4]))
+module.exports = { getQuiz };
