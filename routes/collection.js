@@ -5,7 +5,7 @@ const User = require("../models/User.model");
 const Nft = require("../models/Nft.model");
 
 router.get("/collections", async (req, res, next) => {
-  const users = await User.find();
+  const users = await User.find().sort({updatedAt: -1});
 
   users.forEach(
     (user) =>
