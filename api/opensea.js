@@ -19,7 +19,6 @@ async function getRandomNft() {
     name: name,
     token_id: tokenId,
     asset_contract: { address: assetAdress },
-    collection: { description: collectionDescription },
     collection: { description: collectionDescription, external_url: collectionUrl },
     last_sale,
     last_sale: {
