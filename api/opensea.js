@@ -5,7 +5,7 @@ let unUsedNfts = [];
 
 async function fetchNfts() {
   const offSet = Math.floor(Math.random() * 5000);
-  const reqUrl = `https://api.opensea.io/api/v1/assets?limit=1&order_direction=desc&limit=8&offset=${offSet}&order_by=sale_date`;
+  const reqUrl = `https://api.opensea.io/api/v1/assets?order_direction=desc&limit=8&offset=${offSet}&order_by=sale_date`;
   return (await axios.get(reqUrl)).data.assets;
 }
 
@@ -20,6 +20,7 @@ async function getRandomNft() {
     token_id: tokenId,
     asset_contract: { address: assetAdress },
     collection: { description: collectionDescription },
+    collection: { description: collectionDescription, external_url: collectionUrl },
     last_sale,
     last_sale: {
       total_price,
@@ -28,6 +29,7 @@ async function getRandomNft() {
     },
   } = result;
 
+  console.log(collectionUrl)
   const timestamp = new Date(event_timestamp);
   const priceEth = total_price / Math.pow(10, decimals);
   const priceUsd = (priceEth * usd_price).toFixed(2);
@@ -43,6 +45,7 @@ async function getRandomNft() {
     tokenId,
     assetAdress,
     collectionDescription,
+    collectionUrl,
     lastSale: { timestamp, priceEth, priceUsd },
   });
 }

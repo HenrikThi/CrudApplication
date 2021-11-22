@@ -8,6 +8,7 @@ const nftSchema = new Schema(
     tokenId: String,
     assetAdress: String,
     collectionDescription: String,
+    collectionUrl: String,
     lastSale: {
       timestamp: Date,
       priceEth: Number,

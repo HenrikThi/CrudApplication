@@ -20,11 +20,12 @@
                 <p class="leading-relaxed">{{collectionDescription}}</p>
               </div>
               <div class="flex justify-center m-1">
-                {{#if ../../isOwner}}
                 <form action="/nfts/{{_id}}/delete" method="POST">
-                  <button type="submit" class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Remove</button>
+                  <a href="{{collectionUrl}}" target="_blank" class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Visit Project</a>
+                  {{#if ../../isOwner}}
+                    <button type="submit" class="inline-flex text-gray bg-gray-100 focus:outline-none hover:bg-gray-200 border-0 py-2 px-6  rounded">Remove</button>
+                  {{/if}}
                 </form>
-              {{/if}}
               </div>
             </div>
           </div>
