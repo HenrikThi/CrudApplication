@@ -12,6 +12,10 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
+// Register handlebars partials here:
+const fs = require('fs');
+hbs.registerPartial('header', fs.readFileSync(__dirname + '/views/partials/header.hbs', 'utf8'));
+
 
 const app = express();
 

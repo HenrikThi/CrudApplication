@@ -1,4 +1,4 @@
-{{!-- <h1>Quiz</h1> --}}
+{{> header}}
 
 {{#if lastAnswerWasCorrect}}
 <div class=" bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
@@ -11,37 +11,6 @@
 </div>
 <p></p>
 {{/if}}
-
-
-
-{{!-- <img src="{{nft.imageUrl}}" alt="" />
-
-<p>{{nft.name}}</p>
-<p>{{nft.collectionDescription}}</p>
-<p>{{nft.lastSale.priceUsd}}$</p> --}}
-
-{{!-- <form action="/quiz" method="POST">
-  {{#each questions}}
-    <div>
-      <h2>{{question}}</h2>
-      {{#each options}}
-        <div class="flex items-center mr-4 mb-4">
-          <input type="radio" id="{{this}}" name="{{../question}}" value="{{this}}" class="hidden"/>
-          <label for="{{this}}" class="flex items-center cursor-pointer text-xl">
-            <span class="w-8 h-8 inline-block mr-2 rounded-full border border-grey flex-no-shrink"></span>
-            {{this}}
-          </label>
-        </div>
-      {{/each}}
-    </div>
-  {{/each}}
-  <button type="submit">Send</button>
-</form> --}}
-
-
-
-
-
 
 <section class="text-gray-600 body-font overflow-hidden min-h-screen">
   <div class="container px-5 py-24 mx-auto">
@@ -87,10 +56,7 @@
     </div>
   </div>
 </section>
-{{!-- <section class="h-full bg-red-300" id="quiz-section">
-  <p>THIS is the new SECtion!!  </p>
-  <img src="{{nft.imageUrl}}" alt="" />
-</section> --}}
+
 <section id="quiz-section" class="text-gray-600 body-font overflow-hidden min-h-screen">
   <form action="/quiz" method="POST">
     <div class="container px-5 py-24 mx-auto">
