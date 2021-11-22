@@ -6,7 +6,8 @@ const Nft = require("../models/Nft.model");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  // res.render("index");
+  res.redirect("/login");
 });
 
 const loginCheck = () => {
