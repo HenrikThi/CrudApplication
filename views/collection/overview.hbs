@@ -1,6 +1,33 @@
-<h1>Collection Overview</h1>
-{{#each users}}
-  <p>
-    <a href="/collections/{{_id}}">"{{collectionName}}" by {{username}}</a>
-  </p>
-{{/each}}
+<section class="text-gray-600 body-font relative">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Art Galleries Overview</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Here you can select one of many NFT art galleries. You can also find your own art gallery here, which is displayed to the public.</p>
+    </div>
+  </div>
+</section>
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="-my-8 divide-y-2 divide-gray-100">
+      {{#each users}}
+        <div class="py-8 flex flex-wrap md:flex-nowrap">
+          <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+            <span class="font-semibold title-font text-gray-700">LAST UPDATED</span>
+            <span class="mt-1 text-gray-500 text-sm">{{lastChange}}</span>
+          </div>
+          <div class="md:flex-grow">
+            <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{collectionName}}</h2>
+            <h2 style="margin-top: -10px;" class="text-l font-medium text-gray-900 title-font mb-2">by {{username}}</h2>
+            <p class="leading-relaxed">{{collectionDescription}}</p>
+            <a href="/collections/{{_id}}" class="text-pink-500 inline-flex items-center mt-4">Visit and Explore
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
