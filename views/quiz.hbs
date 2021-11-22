@@ -1,11 +1,18 @@
 {{!-- <h1>Quiz</h1> --}}
 
 {{#if lastAnswerWasCorrect}}
-<p>that was correct!</p>
+<div class=" bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
+  That was correct! The NFT was added to your collection.
+</div>
 {{/if}}
 {{#if lastAnswerWasWrong}}
-<p>that was wrong!</p>
+<div class="bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700" role="alert">
+  That was wrong! There is no second chance, but always another NFT...
+</div>
+<p></p>
 {{/if}}
+
+
 
 {{!-- <img src="{{nft.imageUrl}}" alt="" />
 
@@ -39,7 +46,7 @@
 <section class="text-gray-600 body-font overflow-hidden min-h-screen">
   <div class="container px-5 py-24 mx-auto">
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
-      <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{nft.imageUrl}}">
+      <img alt="NFT image" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{nft.imageUrl}}">
       <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
         <h2 class="text-sm title-font text-gray-500 tracking-widest">NFT NAME</h2>
         <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{nft.name}}</h1>
@@ -72,8 +79,8 @@
             <span class="title-font font-medium text-2xl text-gray-900">{{nft.lastSale.priceEth}}ETH</span> <span class="title-font font-medium text-2xl text-gray-500">(${{nft.lastSale.priceUsd}})</span>
           </div>
           <div class="flex w-1/2">
-            <a href="#quiz-section" class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded ">Start Quiz</a>
-            <a href="/quiz" class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded ">Next</a>
+            <a href="#quiz-section" class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Start Quiz</a>
+            <a href="/quiz" class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded">Next</a>
           </div>
         </div>
       </div>

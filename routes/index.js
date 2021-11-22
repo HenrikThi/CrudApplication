@@ -90,10 +90,10 @@ router.post("/nfts/:id/delete", async (req, res, next) => {
 });
 
 router.post("/users/:id", async (req, res, next) => {
-  const { collectionName } = req.body;
+  const { collectionName, collectionDescription } = req.body;
   await User.findByIdAndUpdate(
     req.params.id,
-    { collectionName },
+    { collectionName, collectionDescription },
     { new: true }
   );
   res.redirect("/profile");
