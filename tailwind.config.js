@@ -4,12 +4,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif']
+        poppins: ["Poppins", "sans-serif"],
       },
     },
+    backgroundImage: (theme) => ({
+      "background-nft": "url('/images/image.png')"
+    }),
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};

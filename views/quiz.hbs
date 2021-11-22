@@ -1,4 +1,4 @@
-<h1>Quiz</h1>
+{{!-- <h1>Quiz</h1> --}}
 
 {{#if lastAnswerWasCorrect}}
 <p>that was correct!</p>
@@ -7,24 +7,125 @@
 <p>that was wrong!</p>
 {{/if}}
 
-<img src="{{nft.imageUrl}}" alt="" />
+{{!-- <img src="{{nft.imageUrl}}" alt="" />
 
 <p>{{nft.name}}</p>
 <p>{{nft.collectionDescription}}</p>
-<p>{{nft.lastSale.priceUsd}}$</p>
+<p>{{nft.lastSale.priceUsd}}$</p> --}}
 
-<form action="/quiz" method="POST">
+{{!-- <form action="/quiz" method="POST">
   {{#each questions}}
     <div>
       <h2>{{question}}</h2>
       {{#each options}}
-        {{!-- <p>{{this}}</p> --}}
-        <div>
-          <input type="radio" id="{{this}}" name="{{../question}}" value="{{this}}" />
-          <label for="huey">{{this}}</label>
+        <div class="flex items-center mr-4 mb-4">
+          <input type="radio" id="{{this}}" name="{{../question}}" value="{{this}}" class="hidden"/>
+          <label for="{{this}}" class="flex items-center cursor-pointer text-xl">
+            <span class="w-8 h-8 inline-block mr-2 rounded-full border border-grey flex-no-shrink"></span>
+            {{this}}
+          </label>
         </div>
       {{/each}}
     </div>
   {{/each}}
   <button type="submit">Send</button>
-</form>
+</form> --}}
+
+
+
+
+
+
+<section class="text-gray-600 body-font overflow-hidden min-h-screen">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{nft.imageUrl}}">
+      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">NFT NAME</h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{nft.name}}</h1>
+        <div class="flex mb-4">
+          <span class="flex items-center">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <span class="text-gray-600 ml-3">Super expensive</span>
+          </span>
+        </div>
+        <p class="leading-relaxed">{{nft.collectionDescription}}</p>
+        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">          
+        </div>
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">Sold for</h2>
+        <div class="flex justify-between">
+          <div>
+            <span class="title-font font-medium text-2xl text-gray-900">{{nft.lastSale.priceEth}}ETH</span> <span class="title-font font-medium text-2xl text-gray-500">(${{nft.lastSale.priceUsd}})</span>
+          </div>
+          <div class="flex w-1/2">
+            <a href="#quiz-section" class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded ">Start Quiz</a>
+            <a href="/quiz" class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded ">Next</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{!-- <section class="h-full bg-red-300" id="quiz-section">
+  <p>THIS is the new SECtion!!  </p>
+  <img src="{{nft.imageUrl}}" alt="" />
+</section> --}}
+<section id="quiz-section" class="text-gray-600 body-font overflow-hidden min-h-screen">
+  <form action="/quiz" method="POST">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col items-center flex-wrap -m-12">
+        {{#each questions}}
+        <div class="p-12 md:w-1/2 flex flex-col items-start">
+          <span class="inline-block py-1 px-2 rounded bg-pink-50 text-pink-500 text-xs font-medium tracking-widest">TECHNOLOGY</span>
+          <h2 class="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">{{question}}</h2>
+          {{#each options}}
+            <div class="flex items-center mr-4 mb-4">
+              <input type="radio" id="{{this}}" name="{{../question}}" value="{{this}}" class="hidden"/>
+              <label for="{{this}}" class="flex items-center cursor-pointer text-xl">
+                <span class="w-8 h-8 inline-block mr-2 rounded-full border border-grey flex-no-shrink"></span>
+                {{this}}
+              </label>
+            </div>
+          {{/each}}
+          <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
+            <a href="https://letmegooglethat.com/?q={{question}}" target="_blank" class="text-pink-500 inline-flex items-center">Get Help
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+            <span class="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+              <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>1.2K
+            </span>
+            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+              <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+              </svg>6
+            </span>
+          </div>
+        </div>
+        {{/each}}
+        <div>
+          <button href="#quiz-section" class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded ">Submit Answers</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

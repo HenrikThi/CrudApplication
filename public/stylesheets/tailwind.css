@@ -3,3 +3,38 @@
 @tailwind components;
 
 @tailwind utilities; 
+
+/* input[type="radio"] + label span {
+    transition: background .2s,
+      transform .2s;
+} */
+
+input[type="radio"] + label span:hover,
+input[type="radio"] + label:hover span{
+  transform: scale(1.2);
+} 
+   
+   input[type="radio"] + label span {
+       transition: background .2s,
+         transform .2s;
+   }
+   
+   input[type="radio"] + label span:hover,
+   input[type="radio"] + label:hover span{
+     transform: scale(1.2);
+   } 
+   
+   input[type="radio"]:checked + label span {
+       @apply bg-pink-500;
+     box-shadow: 0px 0px 0px 2px white inset;
+   }
+   
+   input[type="radio"]:checked + label{
+       @apply text-pink-500;
+   }
+
+   html {
+    scroll-behavior: smooth;
+  }
+   
+   
