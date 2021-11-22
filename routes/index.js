@@ -22,23 +22,28 @@ const loginCheck = () => {
 };
 
 router.get("/quiz", loginCheck(), async (req, res, next) => {
-  const nft = await openSea.getRandomNft();
-  const quiz = await openQuiz.getQuiz(2, "easy");
-  console.log(quiz.answers);
+  try {
+    const nft = await openSea.getRandomNft();
 
-  req.session.nft = nft;
-  req.session.quiz = quiz;
+    const quiz = await openQuiz.getQuizByPrice(nft.lastSale.priceUsd);
+    console.log(quiz.answers);
 
-  const lastAnswerWasCorrect = req.session.wasCorrect === true;
-  const lastAnswerWasWrong = req.session.wasCorrect === false;
-  req.session.wasCorrect = null;
+    req.session.nft = nft;
+    req.session.quiz = quiz;
 
-  res.render("quiz", {
-    nft,
-    questions: quiz.questions,
-    lastAnswerWasCorrect,
-    lastAnswerWasWrong,
-  });
+    const lastAnswerWasCorrect = req.session.wasCorrect === true;
+    const lastAnswerWasWrong = req.session.wasCorrect === false;
+    req.session.wasCorrect = null;
+
+    res.render("quiz", {
+      nft,
+      questions: quiz.questions,
+      lastAnswerWasCorrect,
+      lastAnswerWasWrong,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.get("/profile", loginCheck(), async (req, res, next) => {
