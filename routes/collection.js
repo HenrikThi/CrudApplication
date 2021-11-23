@@ -22,12 +22,6 @@ router.get("/collections", async (req, res, next) => {
 router.get("/collections/:id", async (req, res, next) => {
   const user = await User.findById(req.params.id).populate("nfts");
   const isOwner = req.user?.id === req.params.id;
-  console.log(isOwner);
-
-  user.nfts.forEach(
-    (nft) =>
-      (nft.collectionDescription = nft.collectionDescription?.slice(0, 160))
-  );
 
   res.render("collection/collection", { user, isOwner });
 });

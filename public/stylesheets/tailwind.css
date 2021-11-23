@@ -2,39 +2,40 @@
 
 @tailwind components;
 
-@tailwind utilities; 
+@tailwind utilities;
 
-/* input[type="radio"] + label span {
-    transition: background .2s,
-      transform .2s;
-} */
+@layer base {
+  input[type="radio"] + label span:hover,
+  input[type="radio"] + label:hover span {
+    transform: scale(1.2);
+  }
 
-input[type="radio"] + label span:hover,
-input[type="radio"] + label:hover span{
-  transform: scale(1.2);
-} 
-   
-   input[type="radio"] + label span {
-       transition: background .2s,
-         transform .2s;
-   }
-   
-   input[type="radio"] + label span:hover,
-   input[type="radio"] + label:hover span{
-     transform: scale(1.2);
-   } 
-   
-   input[type="radio"]:checked + label span {
-       @apply bg-pink-500;
-     box-shadow: 0px 0px 0px 2px white inset;
-   }
-   
-   input[type="radio"]:checked + label{
-       @apply text-pink-500;
-   }
+  input[type="radio"] + label span {
+    transition: background 0.2s, transform 0.2s;
+  }
 
-   html {
+  input[type="radio"] + label span:hover,
+  input[type="radio"] + label:hover span {
+    transform: scale(1.2);
+  }
+
+  input[type="radio"]:checked + label span {
+    @apply bg-pink-500;
+    box-shadow: 0px 0px 0px 2px white inset;
+  }
+
+  input[type="radio"]:checked + label {
+    @apply text-pink-500;
+  }
+
+  html {
     scroll-behavior: smooth;
   }
-   
-   
+}
+
+@layer utilities {
+  .no-scroll-bar::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
+}
