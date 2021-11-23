@@ -76,4 +76,15 @@ router.get('/logout', (req, res, next) => {
 	res.redirect('/login')
 });
 
-module.exports = router;
+const loginCheck = () => {
+  return (req, res, next) => {
+    // with basic-auth: req.session.user
+    if (req.isAuthenticated()) {
+      next();
+    } else {
+      res.redirect("/login");
+    }
+  };
+};
+
+module.exports = {router, loginCheck};

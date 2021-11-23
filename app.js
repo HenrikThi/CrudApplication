@@ -90,7 +90,7 @@ app.use(passport.session());
 const index = require("./routes/index");
 app.use("/", index);
 
-const auth = require("./routes/auth");
+const auth = require("./routes/auth").router;
 app.use("/", auth);
 
 const collection = require("./routes/collection");

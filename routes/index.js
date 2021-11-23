@@ -3,23 +3,14 @@ const openSea = require("../api/opensea");
 const openQuiz = require("../api/openQuiz");
 const User = require("../models/User.model");
 const Nft = require("../models/Nft.model");
+const {loginCheck} = require("./auth");
+
 
 /* GET home page */
 router.get("/", (req, res, next) => {
   // res.render("index");
   res.redirect("/login");
 });
-
-const loginCheck = () => {
-  return (req, res, next) => {
-    // with basic-auth: req.session.user
-    if (req.isAuthenticated()) {
-      next();
-    } else {
-      res.redirect("/login");
-    }
-  };
-};
 
 router.get("/quiz", loginCheck(), async (req, res, next) => {
   try {
