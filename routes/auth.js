@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
+const {preloadNfts} = require("../api/opensea")
 
 // const ensureLogin = require("connect-ensure-login");
 
@@ -15,6 +16,7 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.get("/login", (req, res, next) => {
+  preloadNfts();
   res.render("auth/login");
 });
 

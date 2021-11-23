@@ -4,6 +4,7 @@ const Nft = require("../models/Nft.model");
 let fetchedNftsQueue = [];
 
 async function fetchNfts() {
+  console.log("fetching NFTs from opensea.");
   const offSet = Math.floor(Math.random() * 1000);
   const reqUrl = `https://api.opensea.io/api/v1/assets?order_direction=desc&limit=10&offset=${offSet}&order_by=sale_date`;
   const result = (await axios.get(reqUrl)).data.assets;
@@ -18,7 +19,7 @@ async function getRandomNft() {
       console.error(error);
       //reuse old NFTs
       const previousNfts = await Nft.find();
-      return previousNfts[Math.floor(Math.random() * previousNfts.length)]
+      return previousNfts[Math.floor(Math.random() * previousNfts.length)];
     }
   } else if (fetchedNftsQueue.length < 5) {
     fetchNfts();
@@ -61,4 +62,14 @@ async function getRandomNft() {
   });
 }
 
-module.exports = { getRandomNft };
+async function preloadNfts() {
+  if (fetchedNftsQueue.length === 0) {
+    try {
+      await fetchNfts();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
+
+module.exports = { getRandomNft, preloadNfts };
