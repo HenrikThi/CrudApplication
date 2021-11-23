@@ -1,55 +1,58 @@
-{{> header}}
+<section class="min-h-screen">
 
-{{#if lastAnswerWasCorrect}}
-<div class=" bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
-  That was correct! The NFT was added to your collection.
-</div>
-{{/if}}
-{{#if lastAnswerWasWrong}}
-<div class="bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700" role="alert">
-  That was wrong! There is no second chance, but always another NFT...
-</div>
-<p></p>
-{{/if}}
+  {{> header}}
 
-<section class="text-gray-600 body-font overflow-hidden min-h-screen">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex flex-wrap">
-      <img alt="NFT image" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{nft.imageUrl}}">
-      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <h2 class="text-sm title-font text-gray-500 tracking-widest">NFT NAME</h2>
-        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{nft.name}}</h1>
-        <div class="flex mb-4">
-          <span class="flex items-center">
-            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-            </svg>
-            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-            </svg>
-            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-            </svg>
-            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-            </svg>
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-            </svg>
-            <span class="text-gray-600 ml-3">Super expensive, visit the <a href="{{nft.collectionUrl}}" target="_blank" class="text-blue-500 hover:underline">Project Page.</a></span> 
-          </span>
-        </div>
-        <p class="leading-relaxed">{{nft.collectionDescription}}</p>
-        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">          
-        </div>
-        <h2 class="text-sm title-font text-gray-500 tracking-widest">Sold for</h2>
-        <div class="flex justify-between">
-          <div>
-            <span class="title-font font-medium text-2xl text-gray-900">{{nft.lastSale.priceEth}}ETH</span> <span class="title-font font-medium text-2xl text-gray-500">(${{nft.lastSale.priceUsd}})</span>
+  {{#if lastAnswerWasCorrect}}
+  <div class=" bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
+    That was correct! The NFT was added to your collection. Try the next one...
+  </div>
+  {{/if}}
+  {{#if lastAnswerWasWrong}}
+  <div class="bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700" role="alert">
+    That was wrong! There is no second chance, but always another NFT...
+  </div>
+  <p></p>
+  {{/if}}
+
+  <div class="text-gray-600 body-font overflow-hidden">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="lg:w-4/5 mx-auto flex flex-wrap">
+        <img alt="NFT image" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{nft.imageUrl}}">
+        <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+          <h2 class="text-sm title-font text-gray-500 tracking-widest">NFT NAME</h2>
+          <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{nft.name}}</h1>
+          <div class="flex mb-4">
+            <span class="flex items-center">
+              <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+              <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+              <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+              <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+              <span class="text-gray-600 ml-3">Super expensive, visit the <a href="{{nft.collectionUrl}}" target="_blank" class="text-blue-500 hover:underline">Project Page.</a></span> 
+            </span>
           </div>
-          <div class="flex w-1/2">
-            <a href="#quiz-section" class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Start Quiz</a>
-            <a href="/quiz" class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded">Next</a>
+          <p class="leading-relaxed">{{nft.collectionDescription}}</p>
+          <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">          
+          </div>
+          <h2 class="text-sm title-font text-gray-500 tracking-widest">Sold for</h2>
+          <div class="flex justify-between">
+            <div>
+              <span class="title-font font-medium text-2xl text-gray-900">{{nft.lastSale.priceEth}}ETH</span> <span class="title-font font-medium text-2xl text-gray-500">(${{nft.lastSale.priceUsd}})</span>
+            </div>
+            <div class="flex w-1/2">
+              <a href="#quiz-section" class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Start Quiz</a>
+              <a href="/quiz" class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded">Next</a>
+            </div>
           </div>
         </div>
       </div>
@@ -57,12 +60,12 @@
   </div>
 </section>
 
-<section id="quiz-section" class="text-gray-600 body-font overflow-hidden min-h-screen">
+<section id="quiz-section" class="text-gray-600 body-font overflow-hidden min-h-screen bg-gray-100">
   <form action="/quiz" method="POST">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col items-center flex-wrap -m-12">
         {{#each questions}}
-        <div class="p-12 md:w-1/2 flex flex-col items-start">
+        <div class="p-12 md:w-1/2 flex flex-col items-start bg-white">
           <span class="inline-block py-1 px-2 rounded bg-pink-50 text-pink-500 text-xs font-medium tracking-widest">TECHNOLOGY</span>
           <h2 class="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">{{question}}</h2>
           {{#each options}}
@@ -95,7 +98,7 @@
           </div>
         </div>
         {{/each}}
-        <div>
+        <div class=" md:w-1/2 pb-12 flex items-center justify-center bg-white">
           <button href="#quiz-section" class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded ">Submit Answers</button>
         </div>
       </div>
