@@ -11,8 +11,15 @@ async function fetchNfts() {
 }
 
 async function getRandomNft() {
-  if(fetchedNftsQueue.length === 0){
-    await fetchNfts();
+  if (fetchedNftsQueue.length === 0) {
+    try {
+      await fetchNfts();
+    } catch (error) {
+      console.error(error);
+      //reuse old NFTs
+      const previousNfts = await Nft.find();
+      return previousNfts[Math.floor(Math.random() * previousNfts.length)]
+    }
   } else if (fetchedNftsQueue.length < 5) {
     fetchNfts();
   }
