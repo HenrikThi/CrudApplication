@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 const {preloadNfts} = require("../api/opensea")
 
+//testcommit
 // const ensureLogin = require("connect-ensure-login");
 
 router.get("/private-page", (req, res) => {
